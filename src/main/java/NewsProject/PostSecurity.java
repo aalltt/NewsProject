@@ -21,9 +21,14 @@ public class PostSecurity extends WebSecurityConfigurerAdapter {
         this.dataSource = dataSource;
     }
 
+//    @Override
+//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+//        auth.jdbcAuthentication().dataSource(dataSource);
+//    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication().dataSource(dataSource);
+        auth.inMemoryAuthentication().withUser("Bob").password("1234").roles("ADMIN");
     }
 
     @Override
