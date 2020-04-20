@@ -11,25 +11,20 @@ import org.springframework.security.web.context.AbstractSecurityWebApplicationIn
 import javax.sql.DataSource;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class PostSecurity extends WebSecurityConfigurerAdapter {
     //Бин для подключения к БД
-    private DataSource dataSource;
-
-    @Autowired
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
-    }
+//    private DataSource dataSource;
+//
+//    @Autowired
+//    public void setDataSource(DataSource dataSource) {
+//        this.dataSource = dataSource;
+//    }
 
 //    @Override
 //    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 //        auth.jdbcAuthentication().dataSource(dataSource);
 //    }
-
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("Bob").password("1234").roles("ADMIN");
-    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -42,5 +37,10 @@ public class PostSecurity extends WebSecurityConfigurerAdapter {
                 .and().formLogin().loginPage("/login").permitAll()
                 //отправка логина-пароля по url
                 .loginProcessingUrl("/checkuser");
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication().withUser("Bob").password("1234").roles("ADMIN");
     }
 }
