@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <title>Главная страница</title>
+    <title>Редактировать список публикаций</title>
 </head>
 <body>
 
@@ -31,23 +31,33 @@
     </div>
 </nav>
 
-<div class="center">
 
-    <ul>  Всем привет! <br><br>Этот тестовый проект позволяет:
-        <li>Добавлять свои публикации, сохраняя их в БД</li>
-        <li>Просматривать публикации</li>
-        <li>Удалять публикации, если авторизоваться с учетной записью администратора (логин - Bob, пароль - 1234)</li>
-    </ul>
+<div>
+    <h4>Список публикаций</h4>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th style="width: 10%">Номер публикации</th>
+            <th style="width: 30%">Название</th>
+            <th style="width: 60%">Публикация</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="post : ${posts}">
+            <td th:text="${post.id}"/>
+            <td th:text="${post.head}"/>
+            <td th:text="${post.article}"/>
+            <td><a class="btn btn-danger" th:href="@{'/listadmin/delete/'+ ${post.id}}">Удалить запись</a></td>
+        </tr>
+        </tbody>
+    </table>
 
-    <p class="font-weight-bold"> Используйте панель навигации <svg class="bi bi-arrow-up" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 3.5a.5.5 0 01.5.5v9a.5.5 0 01-1 0V4a.5.5 0 01.5-.5z" clip-rule="evenodd"/>
-        <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 01.708 0l3 3a.5.5 0 01-.708.708L8 3.707 5.354 6.354a.5.5 0 11-.708-.708l3-3z" clip-rule="evenodd"/>
-    </svg><br><br></p>
-    Стек технологий: Java, Spring boot, Spring Security, Spring Data JPA, Postgres, Thymeleaf, Bootstrap, HTML <br>
 </div>
 
 
 
 </body>
 </html>
+
 
