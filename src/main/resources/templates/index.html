@@ -11,31 +11,9 @@
 <body>
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/index"><b>N</b>ews<b>P</b>osting </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-<!--                active-->
-                <a class="nav-link" href="/post">Добавить публикацию</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/list">Список публикаций</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="/listadmin">Редактировать список публикаций</a>
-            </li>
-            <li class="nav-item">
-                <a class="btn btn-light" href="#">Логин</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-
+<div class="container">
+    <div th:replace="~{parts/head :: head()}"/>
+</div>
 
 
 <br><br>
@@ -46,7 +24,7 @@
         <li>Просматривать публикации</li>
         <li>Удалять публикации, если авторизоваться с учетной записью администратора (логин - Bob, пароль - 1234)</li>
     </ul>
-        <br><br></p>
+    <br><br></p>
     Стек технологий: Java, Spring boot, Spring Security, Spring Data JPA, Postgres, Thymeleaf, Bootstrap, HTML <br>
 </div>
 

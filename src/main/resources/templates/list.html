@@ -10,25 +10,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/index"><b>N</b>ews<br><b>P</b>osting </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" href="/post">Добавить публикацию</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/list">Список публикаций</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/listadmin">Редактировать список публикаций</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+
+<div class="container">
+    <div th:replace="~{parts/head :: head(list)}"/>
+</div>
 
 <div>
     <h4>Список публикаций</h4>

@@ -1,4 +1,4 @@
-package NewsProject;
+package NewsProject.tables;
 
 import javax.persistence.*;
 

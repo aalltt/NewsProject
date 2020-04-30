@@ -1,6 +1,6 @@
 package NewsProject.services;
 
-import NewsProject.Post;
+import NewsProject.tables.Post;
 import NewsProject.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
