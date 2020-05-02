@@ -28,8 +28,8 @@ public class Person {
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name = "USER_ROLES", joinColumns={
-            @JoinColumn(name = "USER_EMAIL", referencedColumnName = "email") }, inverseJoinColumns = {
+    @JoinTable(name = "PERSON_ROLES", joinColumns={
+            @JoinColumn(name = "PERSON_EMAIL", referencedColumnName = "email") }, inverseJoinColumns = {
             @JoinColumn(name = "ROLE_NAME", referencedColumnName = "name") })
     private List<Role> roles;
 
