@@ -37,7 +37,19 @@ public class PersonService {
     }
 
     public Person findPerson(String email){
-        return personRepository.findById(email).orElseThrow(null);
+        return personRepository.findById(email).orElse(null);
+    }
+
+
+    public boolean isPersonPresent(String email) {
+        Person person=personRepository.findById(email).orElse(null);
+        if(person!=null)
+            return true;
+        return false;
+    }
+
+    public List<Person> findAll() {
+        return personRepository.findAll();
     }
 
 
