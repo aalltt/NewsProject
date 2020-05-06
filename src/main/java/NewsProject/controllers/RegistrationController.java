@@ -34,6 +34,12 @@ public class RegistrationController {
             model.addAttribute("check",true);
             return "registration-page";
         }
+
+//        else
+//        if(personService.isPersonPresentName(person.getName())) {
+//            model.addAttribute("checkn",true);
+//            return "registration-page";
+//        } else
         personService.savePerson(person);
         return "confirm";
     }

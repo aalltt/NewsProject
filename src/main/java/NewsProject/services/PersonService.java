@@ -48,6 +48,14 @@ public class PersonService {
         return false;
     }
 
+//    public boolean isPersonPresentName(String name) {
+//        Person person=personRepository.findById(name).orElse(null);
+//        if(person!=null)
+//            return true;
+//        return false;
+//    }
+
+
     public List<Person> findAll() {
         return personRepository.findAll();
     }

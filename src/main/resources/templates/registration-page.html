@@ -20,6 +20,12 @@
     </p>
 </div>
 
+<div class="alert alert-info" th:if="${checkn}">
+    <p class="text text-center">
+        Пользователь с таким именем уже существует
+    </p>
+</div>
+
 <form th:action="@{/registration}" th:object="${person}" method="post">
     <div class="container  col-4">
         <div class="form-group">
