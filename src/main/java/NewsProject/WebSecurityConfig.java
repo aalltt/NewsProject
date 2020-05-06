@@ -44,12 +44,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         http.authorizeRequests().antMatchers("/registration", "/list", "/", "/login").permitAll()
-//                .antMatchers("/profile").hasAnyRole("USER, ADMIN")
-//                .antMatchers("/users", "/addTask").hasRole("ADMIN")
-//                .and().formLogin().loginPage("/login").permitAll()
-                .anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll()
+                .antMatchers("/posts", "/post").hasAnyRole("USER,ADMIN")
+                .antMatchers("/listadmin", "/persons").hasRole("ADMIN")
+                .and().formLogin().loginPage("/login").permitAll()
                 .defaultSuccessUrl("/list").and().logout().logoutSuccessUrl("/login");
+
     }
 }

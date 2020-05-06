@@ -13,6 +13,7 @@ import java.util.List;
 public class MainController {
 
     private PostService postService;
+
     @Autowired
     public void setPostService(PostService postService) {
         this.postService = postService;

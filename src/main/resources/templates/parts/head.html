@@ -1,3 +1,4 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="ru" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <div th:fragment="head(activeTab)">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="/"><b>N</b>ews<b>P</b>osting </a>
@@ -5,8 +6,8 @@
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav" >
-            <ul class="navbar-nav mr-auto" >
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item" th:classappend="${activeTab == 'list' ? 'active' : ''}">
                     <a class="nav-link" href="/list">Список публикаций</a>
                 </li>
@@ -16,21 +17,31 @@
                 <li class="nav-item" th:classappend="${activeTab == 'alist' ? 'active' : ''}">
                     <a class="nav-link" href="/listadmin">Редактировать список публикаций</a>
                 </li>
-                <li class="nav-item" th:classappend="${activeTab == 'reg' ? 'active' : ''}">
+                <li class="nav-item" sec:authorize="!isAuthenticated()"
+                    th:classappend="${activeTab == 'reg' ? 'active' : ''}">
                     <a class="nav-link" href="/registration">Регистрация</a>
                 </li>
-                <li class="nav-item" th:classappend="${activeTab == 'reglist' ? 'active' : ''}">
+                <li class="nav-item"
+                    th:classappend="${activeTab == 'reglist' ? 'active' : ''}">
                     <a class="nav-link" href="/persons">Зарегистрированные пользователи</a>
                 </li>
-                <li class="nav-item" th:classappend="${activeTab == 'log' ? 'active' : ''}">
-                    <a class="nav-link" href="/login">ВОЙТИ</a>
-                </li>
+
+                <!--                <li class="nav-item" sec:authorize="!isAuthenticated()"-->
+                <!--                    th:classappend="${activeTab == 'log' ? 'active' : ''}">-->
+                <!--                    <a class="nav-link" href="/login">ВХОД</a>-->
+                <!--                </li>-->
+                <form class="form-inline" th:action="@{/login}"
+                      sec:authorize="!isAuthenticated()">
+                    <button class="btn btn-light" type="submit">Вход</button>
+                </form>
             </ul>
 
-            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post" >
-                <input class="form-control mr-sm-2" type="hidden" />
+            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
+                  sec:authorize="isAuthenticated()">
+                <input class="form-control mr-sm-2" type="hidden"/>
                 <button class="btn btn-light my-2 my-sm-0" type="submit">Выход</button>
             </form>
         </div>
     </nav>
 </div>
+</html>>
