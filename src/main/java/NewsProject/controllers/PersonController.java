@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class PersonController {
@@ -17,4 +18,10 @@ public class PersonController {
         model.addAttribute("persons", personService.findAll());
         return "persons-list";
     }
+
+//    @GetMapping("/persondel/delete/{email}")
+//    public String deletePersonFromDB(@PathVariable("email") String email) {
+//        personService.deletePerson(email);
+//        return "redirect:/persons-list";
+//    }
 }

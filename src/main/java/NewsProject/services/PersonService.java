@@ -55,10 +55,13 @@ public class PersonService {
 //        return false;
 //    }
 
-
     public List<Person> findAll() {
         return personRepository.findAll();
     }
+
+//    public void deletePerson(String email) {
+//        personRepository.deleteById(email);
+//    }
 
 
 }

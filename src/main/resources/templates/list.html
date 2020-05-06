@@ -11,9 +11,9 @@
 <body>
 
 <div th:replace="~{parts/head :: head(list)}"/>
-
-<div>
-    <h4>Список публикаций</h4>
+<br>
+<h4>Список публикаций</h4>
+<div class="text-center">
     <table class="table table-bordered table-striped">
         <thead class="thead-dark">
         <tr>
@@ -30,15 +30,17 @@
         </tr>
         </tbody>
     </table>
+
+    <form action="/posts" class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" name="article" placeholder="Введите часть текста"/>
+            <input type="submit" value="Поиск" class="btn btn-primary"/>
+        </div>
+    </form>
+
 </div>
 
 
-<form action="/posts" class="form-inline">
-    <div class="form-group mb-2">
-        <input type="text" class="form-control" name="article" placeholder="Search User"/>
-        <input type="submit" value="Search" class="btn btn-primary"/>
-    </div>
-</form>
 
 
 </body>

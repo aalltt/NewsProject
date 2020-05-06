@@ -12,26 +12,25 @@
 
 <div th:replace="~{parts/head :: head(reglist)}"/>
 <br><br>
-<div>
-    <h4>Список зарегистрированных пользователей</h4>
-    <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
-        <tr>
-            <th style="width: 10%">Имя пользователя</th>
-            <th style="width: 30%">Email</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="person : ${persons}">
-            <td th:text="${person.name}"/>
-            <td th:text="${person.email}"/>
-        </tr>
-        </tbody>
-    </table>
-</div>
 
-
-
+    <div class="container-fluid text-center col-6">
+        <h4>Список зарегистрированных пользователей</h4><br>99999
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th style="width: 10%">Имя пользователя</th>
+                <th style="width: 30%">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="person : ${persons}">
+                <td th:text="${person.name}"/>
+                <td th:text="${person.email}"/>
+<!--                <td><a class="btn btn-danger" th:href="@{'/persondel/delete/'+ ${person.email}}">Удалить пользователя</a></td>-->
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
 
 

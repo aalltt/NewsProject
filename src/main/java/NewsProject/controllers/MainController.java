@@ -23,6 +23,11 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String loginPage() {
+        return "login-page";
+    }
+
     @GetMapping("/list")
     public String listPost(Model model) {
         List<Post> listAllPost = postService.getAllPost();
