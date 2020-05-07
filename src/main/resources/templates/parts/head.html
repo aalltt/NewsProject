@@ -25,21 +25,16 @@
                     th:classappend="${activeTab == 'reglist' ? 'active' : ''}">
                     <a class="nav-link" href="/persons">Зарегистрированные пользователи</a>
                 </li>
-
-                <!--                <li class="nav-item" sec:authorize="!isAuthenticated()"-->
-                <!--                    th:classappend="${activeTab == 'log' ? 'active' : ''}">-->
-                <!--                    <a class="nav-link" href="/login">ВХОД</a>-->
-                <!--                </li>-->
-                <form class="form-inline" th:action="@{/login}"
-                      sec:authorize="!isAuthenticated()">
-                    <button class="btn btn-light" type="submit">Вход</button>
-                </form>
             </ul>
-
-            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post"
+            <form class="form-inline" th:action="@{/login}"
+                  sec:authorize="!isAuthenticated()">
+                <input class="form-control" type="hidden"/>
+                <button class="btn btn-light" type="submit">Вход</button>
+            </form>
+            <form class="form-inline" th:action="@{/logout}" method="post"
                   sec:authorize="isAuthenticated()">
-                <input class="form-control mr-sm-2" type="hidden"/>
-                <button class="btn btn-light my-2 my-sm-0" type="submit">Выход</button>
+                <input class="form-control  mr-sm-2" type="hidden"/>
+                <button class="btn btn-light  my-2 my-sm-0" type="submit">Выход</button>
             </form>
         </div>
     </nav>
